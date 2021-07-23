@@ -10,9 +10,9 @@ jobs:
       - sfdx/auth:
           defaultusername: kiburedo@gmail.com
       - run:
-          name: Run your SFDX commands here
+          name: Confirm SFDX Version
           command: |
-            sfdx force:org:display
+            sfdx -v
 workflows:
   basic-test:
     jobs:
