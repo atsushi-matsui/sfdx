@@ -14,15 +14,12 @@ jobs:
           command: |
             sfdx -v
             sfdx auth:list
-  next:
-    executor: sfdx/default
-    steps:
       - run:
           name: Confirm Folder
           command: |
             ls
+
 workflows:
   basic-test:
     jobs:
       - install_authenticate
-      - next
