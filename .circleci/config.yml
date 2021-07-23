@@ -25,6 +25,4 @@ workflows:
   basic-test:
     jobs:
       - install_authenticate
-  next-test:
-    jobs:
       - next
