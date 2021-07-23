@@ -13,6 +13,7 @@ jobs:
           name: Confirm SFDX Version
           command: |
             sfdx -v
+            sfdx auth:list
 workflows:
   basic-test:
     jobs:
