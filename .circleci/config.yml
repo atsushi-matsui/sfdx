@@ -1,0 +1,18 @@
+version: 2.1
+ orbs:
+   sfdx: circleci/salesforce-sfdx@x.y
+ jobs:
+   install_authenticate:
+     executor: sfdx/default
+     steps:
+       - checkout
+       - sfdx/install
+       - sfdx/auth:
+           defaultusername: kiburedo@gmail.com
+       - run:
+           name: Check Auth List
+           command: sfdx force:auth:list
+ workflows:
+   basic-test:
+     jobs:
+       - install_authenticate
