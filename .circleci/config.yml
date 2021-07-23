@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Confirm Folder
           command: |
-            ls -la
+            ls
 workflows:
   basic-test:
     jobs:
