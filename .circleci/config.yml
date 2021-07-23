@@ -14,8 +14,17 @@ jobs:
           command: |
             sfdx -v
             sfdx auth:list
+  next:
+    executor: sfdx/default
+    steps:
+      - run:
+          name: Confirm Folder
+          command: |
             ls -la
 workflows:
   basic-test:
     jobs:
       - install_authenticate
+  next-test:
+    jobs:
+      - next
