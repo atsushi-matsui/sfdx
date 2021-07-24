@@ -10,6 +10,10 @@ jobs:
       - sfdx/auth:
           defaultusername: kiburedo@gmail.com
       - run:
+          name: Before 
+          command: |
+            ls -la
+      - run:
           name: Confirm SFDX Version
           command: |
             sfdx -v
