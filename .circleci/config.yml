@@ -39,7 +39,7 @@ jobs:
             sfdx config:set defaultusername=kiburedo@gmail.com
             mkdir ./build 
             sfdx force:source:convert -d ./build
-            sfdx force:mdapi:deploy -c -d ./build -u sfdx-master
+            sfdx force:mdapi:deploy -c -d ./build -u sfdx-develop
 
 workflows:
   basic-test:
