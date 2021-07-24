@@ -15,9 +15,10 @@ jobs:
             sfdx -v
             sfdx auth:list
       - run:
-          name: Confirm Folder
+          name: SFDX Deploy
           command: |
-            ls
+            sfdx config:set defaultusername=kiburedo@gmail.com
+            sfdx force:source:retrieve --manifest ./manifest/package.xml
 
 workflows:
   basic-test:
