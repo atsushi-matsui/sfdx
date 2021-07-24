@@ -44,13 +44,13 @@ jobs:
 workflows:
   basic-test:
     jobs:
-      - master_deploy_flow
-      filters:
-        branches:
-          only:
+      - master_deploy_flow:
+        filters:
+          branches:
+            only:
           - master
-      - develop_deploy_flow
-      filters:
-        branches:
-          only:
-          - develop
+      - develop_deploy_flow:
+        filters:
+          branches:
+            only:
+            - develop
