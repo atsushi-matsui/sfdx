@@ -18,7 +18,7 @@ jobs:
           name: SFDX Deploy
           command: |
             sfdx config:set defaultusername=kiburedo@gmail.com
-            rm -r ./build/
+            mkdir ./build 
             sfdx force:source:convert -d ./build
             sfdx force:mdapi:deploy -d ./build -u sfdx-master
 
