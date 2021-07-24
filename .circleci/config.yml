@@ -45,12 +45,12 @@ workflows:
   basic-test:
     jobs:
       - master_deploy_flow:
-        filters:
-          branches:
-            only:
-          - master
+          filters:
+            branches:
+              only:
+              - master
       - develop_deploy_flow:
-        filters:
-          branches:
-            only:
-            - develop
+          filters:
+            branches:
+              only:
+                - develop
