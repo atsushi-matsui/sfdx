@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   sfdx: circleci/salesforce-sfdx@2.2.0
 jobs:
-  install_authenticate:
+  master_deploy_flow:
     executor: sfdx/default
     steps:
       - checkout
@@ -21,8 +21,36 @@ jobs:
             mkdir ./build 
             sfdx force:source:convert -d ./build
             sfdx force:mdapi:deploy -d ./build -u sfdx-master
+  develop_deploy_flow:
+    executor: sfdx/default
+    steps:
+      - checkout
+      - sfdx/install
+      - sfdx/auth:
+          defaultusername: kiburedo@gmail.com
+      - run:
+          name: Confirm SFDX Version
+          command: |
+            sfdx -v
+            sfdx auth:list
+      - run:
+          name: SFDX Deploy
+          command: |
+            sfdx config:set defaultusername=kiburedo@gmail.com
+            mkdir ./build 
+            sfdx force:source:convert -d ./build
+            sfdx force:mdapi:deploy -c -d ./build -u sfdx-master
 
 workflows:
   basic-test:
     jobs:
-      - install_authenticate
+      - master_deploy_flow
+      filters:
+        branches:
+          only:
+          - master
+      - develop_deploy_flow
+      filters:
+        branches:
+          only:
+          - develop
