@@ -18,7 +18,9 @@ jobs:
           name: SFDX Deploy
           command: |
             sfdx config:set defaultusername=kiburedo@gmail.com
-            sfdx force:source:retrieve --manifest ./manifest/package.xml
+            rm -r ./build/
+            sfdx force:source:convert -d ./build
+            sfdx force:mdapi:deploy -d ./build -u sfdx-master
 
 workflows:
   basic-test:
